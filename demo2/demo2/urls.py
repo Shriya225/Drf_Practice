@@ -25,4 +25,5 @@ urlpatterns = [
     path("",Greeting.as_view(),name="greeting"),
     path("demo/",DemoView.as_view(),name="demo"),
     path("myapp/",include("myapp.urls")),
+    path("api/",include("api.urls")),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
