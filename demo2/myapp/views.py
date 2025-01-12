@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import DemoModel
-from .serializers import DemoSerializer
+from .models import DemoModel,Articles
+from .serializers import DemoSerializer,ArticleSerializer
 
 @api_view(["GET","POST"])
 def index(request):
@@ -45,3 +45,12 @@ def tasklist(request):
         obj=DemoModel.objects.get(id=request.data["id"])
         obj.delete()
         return Response({"msg":f"succesfully deleted {request.data["id"]} "})
+    
+
+@api_view(["GET","POST"])
+def articleList(request):
+    if request.method=="GET":
+        x=Articles.objects.all()
+        serializer=ArticleSerializer(x,many=True)
+        return Response(serializer.data)
+

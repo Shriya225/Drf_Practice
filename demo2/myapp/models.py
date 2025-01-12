@@ -6,11 +6,16 @@ class DemoModel(models.Model):
     place=models.CharField(max_length=50)
     age=models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 class Articles(models.Model):
-    demo=models.ForeignKey(DemoModel,on_delete=models.CASCADE)
+    demo=models.ForeignKey(DemoModel,on_delete=models.CASCADE,related_name="DemoModel")
     title=models.CharField(max_length=30)
     pages=models.IntegerField()
 
+    def __str__(self):
+        return self.title
 
 
     
