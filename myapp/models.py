@@ -16,6 +16,11 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Plant(models.Model):
+    name=models.CharField(max_length=30)
+    color=models.CharField(max_length=10)
+    age=models.IntegerField()
 
 
     
