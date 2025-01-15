@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import DemoModel,Articles
+from .models import DemoModel,Articles,Plant
 
 class DemoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,4 +20,9 @@ class ArticleSerializer(serializers.ModelSerializer):
         model=Articles
         fields="__all__"
         # depth=1
+
+class PlantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Plant
+        fields="__all__"
     
